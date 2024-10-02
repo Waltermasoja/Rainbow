@@ -1,0 +1,511 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Rainbow Dux Private School</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <h3 class="sitename">Rainbow Dux Private School</h3>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home<br></a></li>
+          
+          <!-- <li><a href="events.html">School Calendar</a></li> -->
+
+          <li class="dropdown"><a href="#"><span>School Divisions</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{% url 'tlc' %}">TLC</a></li>
+              <li><a href="{% url 'strataford' %}">Strataford</a></li>
+
+            </ul>
+          </li>
+          <li><a href="{% url 'testimonials' %}">What our clients say</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'event_list' %}">Events</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <!-- <a href="{% static 'assets/pdf/enrollment.pdf' %}" download>Enrolment Form</a> -->
+
+      <a class="btn-getstarted" href="{% url 'contact' %}">Enrolment Form</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static 'assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+      <div class="container">
+
+        <h2 data-aos="fade-up" data-aos-delay="100">WE EMPOWER, ENRICH and ENABLE<br></h2><br>
+
+        <p data-aos="fade-up" data-aos-delay="200">The school was Established in 2013. Our morals and values are based
+          on Christianity.
+          We use the inclusive approach and offer small classes from babies (6 months) to Grade
+          7. For the past 11 years the school has been running and achieving its goals.</p>
+
+
+    </section><!-- /Hero Section -->
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us">
+
+
+      <!-- About Us Section -->
+      <section id="about-us" class="section about-us">
+
+        <div class="container">
+
+          <div class="row gy-4">
+
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+              <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+              <h3>ABOUT US</h3><br>
+              <p>
+                We have a unique approach to learning, offering small classes and intervention
+                programs to support the CAPS curriculum and ensure learning readiness. We create a
+                supportive and engaging learning environment using smartboard technology and our
+                approach ensures that every student enjoys learning while benefiting from one-on-one
+                support and innovative tools. We offer a nurturing, home-like environment where children
+                have the opportunity to be the best that they can be.
+              </p><br>
+              <ul>
+                <li><i class="bi bi-check-circle"></i> <span>We are a family, we LOVE, LEARN, LIVE and LAUGH..</span>
+                </li>
+                <li><i class="bi bi-check-circle"></i> <span>We provide learners with sense of belonging.</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Offer an open, happy, welcoming environment.</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Learners are physically and psychologically safe.</span>
+                </li>
+                <li><i class="bi bi-check-circle"></i> <span>Learners are always motivated.</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>The staff gives it all and are devoted to their
+                    duties..</span></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section><!-- /About Us Section -->
+
+
+
+
+
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>Our Vission</h3>
+              <p>
+                Empowering learners to fully develop their talents, understand themselves and the world and respect the
+                beliefs and abilities of others..
+              </p>
+
+              <h3>Our Mision</h3>
+              <p>
+                We strive to offer an inclusive learning environment where every student, regardless of their background
+                or abilities, is valued and empowered to reach their full potential. We are dedicated to providing
+                personalised, high-quality education that supports diverse learning needs and promotes a culture of
+                respect, collaboration and growth for all..
+              </p>
+              <!-- <div class="text-center">
+                <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+              </div> -->
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="col-xl-4">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-book"></i>
+                  <h4>Pre-School</h4>
+                  <p>School gate opens at 6:45am
+                    School starts at 7:45am and ends at 5:30pm (full day)
+                    7:45am to 12:30pm (half day)</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-book"></i>
+                  <h4>Primary School</h4>
+                  <p>School gate opens at 6:45am
+                    School starts at 7:45am and ends at 2:30pm</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-people"></i>
+                  <h4>Aftercare</h4>
+                  <p>3:30pm to 5:30pm for SPS learners.
+                    We also provide aftercare for learners from nearby schools from 1:00pm</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+
+    <!-- Counts Section -->
+    <!-- <section id="counts" class="section counts light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Students</p>
+            </div> -->
+          </div><!-- End Stats Item -->
+<!-- 
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Teachers</p>
+            </div>
+          </div> -->
+          <!-- End Stats Item -->
+
+          <!-- <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Events</p>
+            </div>
+          </div> -->
+          <!-- End Stats Item -->
+        <!-- </div>
+
+      </div>
+
+    </section> -->
+    <!-- /Counts Section -->
+
+
+    <!-- </div>
+
+    </div>
+
+    </section> -->
+    <!-- /Features Section -->
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Rainbow Dux School</h2>
+        <p>Divisions</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="course-item">
+              <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">TLC Kid Care</p>
+
+                </div>
+
+                <h3><a href="course-details.html">6 Months to RR</a></h3>
+                <p class="description">TLC provides a safe, nurturing environment where children learn, grow, and thrive
+                  through play and exploration</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="{% static 'assets/img/trainers/trainer-1-2.jpg' %}" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">Walter - Pre-School Head</a>
+                  </div>
+                  <!-- <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;50
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="course-item">
+              <img src="{% static 'assets/img/course-2.jpg' %}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">Stratford Preparatory School</p>
+
+                </div>
+
+                <h3><a href="course-details.html">Grade 1-7</a></h3>
+                <p class="description">Stratford Preparatory fosters a love for learning in a caring environment,
+                  where students develop strong academic foundations,
+                  social skills, and creativity to thrive in their future education.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="{% static 'assets/img/trainers/trainer-2-2.jpg' %}" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">Irene - Primary School Head</a>
+                  </div>
+                  <!-- <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;35
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Courses Section -->
+
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+            <h3><br>Our Interventions</h3>
+
+
+
+          </div>
+
+          <p>Our intervention programs are designed to provide targeted support for each child’s
+            unique needs and establish a firm foundation by supporting the neuro-developmental
+            systems on which we build life skills. These programs support body-brain integration by
+            strengthening neural pathways through consistency, rhythm and sequences and our
+
+            Rainbow Dux Private School
+
+            TLC Kid Care
+            (From 6 Months to RR)
+
+            Stratford Preparatory School
+            (From Grade R-7)
+
+            personalised instruction and resources help to address specific academic or
+            developmental challenges. Our tailored guidance promotes their strengths, addresses
+            areas for improvement and fosters a positive learning experience.</p>
+
+        </div>
+
+        <div style="margin: 20px;">
+
+
+          <div class="container my-4">
+            <h2 class="text-center">School Calendar</h2><br><br>
+            <div class="row">
+              <!-- Loop through each term -->
+              {% for term in terms %}
+              <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                <div class="card flex-fill border-0 shadow">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ term.name }}</h5>
+                    <p class="card-text">
+                      <strong>Starts on:</strong> {{ term.start_date|date:"M. d, Y, P" }}<br>
+                      <strong>Ends on:</strong> {{ term.end_date|date:"M. d, Y, P" }}<br>
+
+                      <!-- Loop through the events related to the current term -->
+                      {% if term.events.all %}
+                      {% for event in term.events.all %}
+                      <strong>{{ event.name }}:</strong><br>
+                      {{ event.start_date|date:"M. d, Y" }} from {{ event.start_date|date:"g:i a" }} - {{
+                      event.end_date|date:"g:i a" }}<br>
+                      {% endfor %}
+                      {% else %}
+                      <em>No events for this term</em>
+                      {% endif %}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+    </section><!-- /About Section -->
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Rainbow Dux</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Reg No. TS 700 400 727
+              482 Grunberger Street, Constantia Park 0181
+              Postnet Suite 272, Private Bag X4, Menlo Park,</p>
+            <p>Preria East</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>079 130 2857 / 081 042 3852</span></p>
+            <p><strong>Email:</strong> <span>principal@stratford prep.co.za; admin@stratfordprep.co.za</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="mailto:walterfmasoja@gmail.com?Subject=Enrollment">Enquiries</a></li>
+            <li><a href="{% url 'event_list' %}">News and Upcoming Events</a></li>
+            <li><a href="{% url 'gallery' %}">Gallery</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="{% url 'tlc' %}">Pre-School</Pre-School></a></li>
+            <li><a href="{% url 'strataford' %}">Primary School</a></li>
+            <li><a href="#">Aftercare Services</a></li>
+
+          </ul>
+        </div>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.0879196440533!2d28.283500975401676!3d-25.80067337732742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9560b2cbc86b0b%3A0x9e3e1db1bb2c0510!2s482%20Grunberger%20St%2C%20Constantia%20Park%2C%20Pretoria%2C%200010!5e0!3m2!1sen!2sza!4v1725977722364!5m2!1sen!2sza"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sza!4v1726471089459!5m2!1sen!2sza!6m8!1m7!1sDZiWGxB8SBqbUeImDyvMmw!2m2!1d-25.80096600552181!2d28.28617955374412!3f0!4f0!5f1.1924812503605782"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+
+      <p>Designed by Walterm</p>
+    </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+  <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+  <script>
+    var wa_btnSetting = { "btnColor": "#16BE45", "ctaText": "Contact us", "cornerRadius": 40, "marginBottom": 20, "marginLeft": 20, "marginRight": 20, "btnPosition": "right", "whatsAppNumber": "27638700244", "welcomeMessage": "Thank you for contacting Rainbow Dux, how can we help you today?", "zIndex": 999999, "btnColorScheme": "light" };
+    window.onload = () => {
+      _waEmbed(wa_btnSetting);
+    };
+  </script>
+
+
+</body>
+
+</html>

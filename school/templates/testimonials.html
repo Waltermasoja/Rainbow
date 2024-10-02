@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="main">
+
+    <!-- testimonials Section -->
+    <section id="events" class="events section">
+  
+      
+  
+      <main class="main">
+  
+        <!-- testimonials Section -->
+        <section id="events" class="events section">
+      
+          <div class="container">
+            <div class="row">
+              {% for testimonial in testsms %}
+              <div class="col-12 d-flex align-items-stretch mb-4">
+                <div class="card w-100">
+                  <!-- Removed the image section as per your request -->
+                  <div class="card-body">
+                    <!-- <h5 class="card-title"><a href="#">{{ testimonial.name }}</a></h5> -->
+                    <p class="card-text">{{ testimonial.description}}</p>
+                    <i><p>{{ testimonial.name }}</p></i>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <p>No events testimonials.</p>
+              {% endfor %}
+            </div>
+          </div>
+      
+        </section><!-- /testimonials Section -->
+      
+      </main>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Rainbow Dux Private School</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+         
+         <img src="{% static 'assets/img/logo.png' %}" alt=""> 
+        <h3 class="sitename">Rainbow Dux Private School</h3>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home<br></a></li>
+          
+          <!-- <li><a href="events.html">School Calendar</a></li> -->
+
+          <li class="dropdown"><a href="#"><span>School Divisions</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{% url 'tlc' %}">TLC</a></li>
+              <li><a href="{% url 'strataford' %}">Strataford</a></li>
+
+            </ul>
+          </li>
+          <li><a href="{% url 'testimonials' %}">What our clients say</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'event_list' %}">Events</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      
+
+      <a class="btn-getstarted" href="{% url 'contact' %}" >Enrolment Form</a>
+
+    </div>
+  </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer id="footer" class="footer position-relative light-background">
+
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">Rainbow Dux</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Reg No. TS 700 400 727
+                  482 Grunberger Street, Constantia Park 0181
+                  Postnet Suite 272, Private Bag X4, Menlo Park,</p>
+              <p>Preria East</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>079 130 2857 / 081 042 3852</span></p>
+              <p><strong>Email:</strong> <span>principal@stratford prep.co.za; admin@stratfordprep.co.za</span></p>
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="mailto:walterfmasoja@gmail.com?Subject=Enrollment">Enquiries</a></li>
+              <li><a href="{% url 'event_list' %}">News and upcoming events</a></li>
+              <li><a href="{% url 'gallery' %}">Gallery</a></li>
+              
+            </ul>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="{% url 'tlc' %}">Pre-School</Pre-School></a></li>
+              <li><a href="{% url 'strataford' %}">Primary school</a></li>
+              <li><a href="#">Aftercare services</a></li>
+              
+            </ul>
+          </div>
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.0879196440533!2d28.283500975401676!3d-25.80067337732742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9560b2cbc86b0b%3A0x9e3e1db1bb2c0510!2s482%20Grunberger%20St%2C%20Constantia%20Park%2C%20Pretoria%2C%200010!5e0!3m2!1sen!2sza!4v1725977722364!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        </div>
+      </div>
+  
+      <div class="container copyright text-center mt-4">
+       
+           <p>Designed by Walterm</p>
+        </div>
+      </div>
+  
+    </footer> 
+</body>
+</html>
