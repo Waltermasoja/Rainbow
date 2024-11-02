@@ -52,3 +52,14 @@ class term_events(models.Model):
 
     def __str__(self):
         return self.name
+    
+#Gallary for Adventure walks.
+  
+class adwalks_photo(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='photos/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title    
