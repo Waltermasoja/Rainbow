@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-9!=3*ypk4k5la2lrlf#x+(^*c9@j*!*oot_hib&h!px31_a^5n
 DEBUG = True
 
 # DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','rainbow-production-235c.up.railway.app','https://rainbow-production-235c.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://rainbow-production-235c.up.railway.app']
 
 
 # Application definition
