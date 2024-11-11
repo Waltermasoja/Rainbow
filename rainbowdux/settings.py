@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-9!=3*ypk4k5la2lrlf#x+(^*c9@j*!*oot_hib&h!px31_a^5n
 DEBUG = True
 
 # DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['*','rainbow-production-235c.up.railway.app','https://rainbow-production-235c.up.railway.app']
+ALLOWED_HOSTS = ['*','https://rainbow-production-235c.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['https://rainbow-production-235c.up.railway.app']
 
 
@@ -92,7 +92,28 @@ DATABASES = {
         'HOST': 'localhost',  
         'PORT': '3306',       
     }
+
+
 }
+
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql://postgres:myRQFfwctMKWFWRxzYGBQySHjbWqdCru@autorack.proxy.rlwy.net:58581/railway')
+}
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'myRQFfwctMKWFWRxzYGBQySHjbWqdCru',
+#         'HOST': 'autorack.proxy.rlwy.net',  
+#         'PORT': '5432',       
+#     }
+# }
 
 # import os
 # import dj_database_url
