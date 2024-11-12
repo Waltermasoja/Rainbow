@@ -1,2 +1,2 @@
-web: gunicorn rainbowdux.wsgi --bind 0.0.0.0$PORT
-web: manage.py migrate && gunicorn rainbowdux.wsg
+web: gunicorn rainbowdux.wsgi:application --bind 0.0.0.0:$PORT
+release: python manage.py migrate
