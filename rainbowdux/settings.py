@@ -83,18 +83,18 @@ WSGI_APPLICATION = 'rainbowdux.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rainbowdux',
-        'USER': 'root',
-        'PASSWORD': '@Walter6711.',
-        'HOST': 'localhost',  
-        'PORT': '3306',       
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'rainbowdux',
+#         'USER': 'root',
+#         'PASSWORD': '@Walter6711.',
+#         'HOST': 'localhost',  
+#         'PORT': '3306',       
+#     }
 
 
-}
+# }
 
 import dj_database_url
 
