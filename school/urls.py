@@ -19,6 +19,6 @@ urlpatterns = [
     path('strataford', views.startaford_view, name='strataford'),
     # path('superuser-panel/', admin.site.urls),  
     path('superuser-access/', views.superuser_access, name='superuser_access'),
-
+  
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
