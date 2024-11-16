@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+    <div class="background-image"></div>
+    <div class="overlay">
+        <h1 style="color: blanchedalmond;">Welcome to Rainbowdux Gallery</h1>
+       
+        <ul style="list-style-type: none; padding: 0;"> 
+            {% for gallery in galleries %} 
+            <li>
+                <a href="{% url 'gallery_detail' gallery.pk %}">{{ gallery.name }}</a>
+            </li> 
+            {% endfor %} 
+        </ul>
+    </div>
+</body>
+
+
+
+{% endblock content %}

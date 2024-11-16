@@ -7,6 +7,8 @@ from django.contrib import admin
 
 urlpatterns = [
     path('',views.index,name='index'),
+    path('gallery_list', views.gallery_list, name='gallery_list'),
+    path('gallery/<int:pk>/', views.gallery_detail, name='gallery_detail'),
     path('event_list', views.event_list, name='event_list'),
     path('gallery/',views.gallery_view,name='gallery'),
     path('upload/',views.upload_photo,name='upload_photo'),
@@ -15,7 +17,7 @@ urlpatterns = [
     path('success/', lambda request: HttpResponse(' # type: ignoreThank you for your message!'), name='success'),
     path('tlc/', views.tlc_view, name='tlc'),
     path('strataford', views.startaford_view, name='strataford'),
-    path('superuser-panel/', admin.site.urls),  
+    # path('superuser-panel/', admin.site.urls),  
     path('superuser-access/', views.superuser_access, name='superuser_access'),
 
     

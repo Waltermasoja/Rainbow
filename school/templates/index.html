@@ -65,7 +65,9 @@
             </ul>
           </li>
           <li><a href="{% url 'testimonials' %}">What our clients say</a></li>
-          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <!-- <li><a href="{% url 'gallery' %}">Gallery</a></li> -->
+          <li><a href="{% url 'gallery_list' %}">Gallery</a></li>
+          
           <li><a href="{% url 'event_list' %}">Events</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -283,10 +285,10 @@
                 <p class="description">TLC provides a safe, nurturing environment where children learn, grow, and thrive
                   through play and exploration</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
+                  <!-- <div class="trainer-profile d-flex align-items-center">
                     <img src="{% static 'assets/img/trainers/trainer-1-2.jpg' %}" class="img-fluid" alt="">
                     <a href="" class="trainer-link">Walter - Pre-School Head</a>
-                  </div>
+                  </div> -->
                   <!-- <div class="trainer-rank d-flex align-items-center">
                     <i class="bi bi-person user-icon"></i>&nbsp;50
                     &nbsp;&nbsp;
@@ -312,10 +314,10 @@
                   where students develop strong academic foundations,
                   social skills, and creativity to thrive in their future education.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
+                  <!-- <div class="trainer-profile d-flex align-items-center">
                     <img src="{% static 'assets/img/trainers/trainer-2-2.jpg' %}" class="img-fluid" alt="">
                     <a href="" class="trainer-link">Irene - Primary School Head</a>
-                  </div>
+                  </div> -->
                   <!-- <div class="trainer-rank d-flex align-items-center">
                     <i class="bi bi-person user-icon"></i>&nbsp;35
                     &nbsp;&nbsp;
@@ -450,7 +452,9 @@
           <ul>
             <li><a href="mailto:walterfmasoja@gmail.com?Subject=Enrollment">Enquiries</a></li>
             <li><a href="{% url 'event_list' %}">News and Upcoming Events</a></li>
-            <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <!-- <li><a href="{% url 'gallery' %}">Gallery</a></li> -->
+          <li><a href="{% url 'gallery_list' %}">Gallery</a></li>
+
 
           </ul>
         </div>

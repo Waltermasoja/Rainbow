@@ -63,3 +63,21 @@ class adwalks_photo(models.Model):
 
     def __str__(self):
         return self.title    
+    
+#Gallery that is partitioned to have each event with its own gallery
+# 
+class Gallery(models.Model): 
+    name = models.CharField(max_length=100)  
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Image(models.Model):
+    gallery = models.ForeignKey(Gallery,related_name='images',on_delete=models.CASCADE)   
+    title = models.CharField(max_length=100)
+    images = models.ImageField(upload_to='photos/')
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title

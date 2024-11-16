@@ -1,41 +1,62 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<center><h3>Enrollment Form</h3></center>
-<div class="container mt-5">
+<!-- Contact Section Start -->
+<div class="contact_section layout_padding margin_top90">
+  <div class="container">
+    <h1 class="contact_taital">Enrollment Form</h1>
+    <p class="contact_text">Send a custom message</p>
+    <div class="contact_section_2 layout_padding">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="contact_main">
+            <!-- Enrollment Form -->
+            <form onsubmit="location.href='mailto:walterfmasoja@gmail.com?subject=' 
+              + encodeURIComponent('New Contact Form Submission') 
+              + '&body=' 
+              + encodeURIComponent('Full Name: ' + this['Full Name'].value 
+              + '\nPhone Number: ' + this['Phone Number'].value 
+              + '\nEmail: ' + this.Email.value 
+              + '\nMessage: ' + this.Message.value); 
+              return false;">
+              <!-- Full Name Field -->
+              <div class="mb-3">
+                <label for="full-name" class="form-label">Full Name</label>
+                <input type="text" id="full-name" name="Full Name" class="form-control mail_text" placeholder="Full Name" required>
+              </div>
 
-    <form method="post" class="needs-validation" novalidate>
-      {% csrf_token %}
-      
-      <div class="mb-3">
-        {{ form.non_field_errors }}
-      </div>
+              <!-- Phone Number Field -->
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">Phone Number</label>
+                <input type="text" id="phone-number" name="Phone Number" class="form-control mail_text" placeholder="Phone Number" required>
+              </div>
 
-      {% for field in form %}
-        <div class="mb-3">
-          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-          <input type="{{ field.field.widget.input_type }}" 
-                 name="{{ field.name }}" 
-                 id="{{ field.id_for_label }}" 
-                 class="form-control" 
-                 value="{{ field.value|default_if_none:'' }}" 
-                 {% if field.field.required %}required{% endif %}>
-          <div class="form-text">
-            {% if field.help_text %}
-              {{ field.help_text }}
-            {% endif %}
+              <!-- Email Field -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="Email" class="form-control mail_text" placeholder="Email" required>
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="Message" class="form-control massage-bt" placeholder="Message" rows="5" required></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="send_bt">
+                <input type="submit" value="SEND" class="btn btn-primary">
+              </div>
+            </form>
           </div>
-          {{ field.errors }}
         </div>
-      {% endfor %}
-
-      <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+      </div>
+    </div>
   </div>
+</div>
+<!-- Contact Section End -->
+{% endblock %}
 
-  <!-- Include Bootstrap JS and dependencies -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
-{% endblock content%}

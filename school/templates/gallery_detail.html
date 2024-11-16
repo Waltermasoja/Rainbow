@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="background-image"></div>
+    <div class="overlay">
+        <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
+        <p>{{ gallery.description }}</p>
+
+        <!-- Slideshow Gallery Section -->
+        {% if gallery.images.exists %}
+        <div class="slideshow-container">
+            {% for image in gallery.images.all %}
+            <div class="slides fade">
+                <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
+                <div class="text">{{ image.title }}: {{ image.description }}</div>
+            </div>
+            {% endfor %}
+
+            <!-- Next and Previous Buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots/Circles for each slide -->
+        <div class="dots-container">
+            {% for image in gallery.images.all %}
+            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No images available for this gallery.</p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("slides");
+                var dots = document.getElementsByClassName("dot");
+
+                if (n > slides.length) {slideIndex = 1;}
+                if (n < 1) {slideIndex = slides.length;}
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+
+            window.plusSlides = plusSlides;
+            window.currentSlide = currentSlide;
+        });
+    </script>
+</body>
+{% endblock content %}

@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from.models import photo,Event,SchoolCal,testimonials,Term,term_events
+from.models import photo,Event,SchoolCal,testimonials,Term,term_events,Gallery
 from .forms import photoform,ContactForm
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponseForbidden
+
 
 
 SECRET_TOKEN = "secure-token-12345"  
@@ -95,5 +96,13 @@ def tlc_view(request):
 
 def startaford_view(request):
     return render(request,'strataford.html')
+
+def gallery_list(request): 
+    galleries = Gallery.objects.all() 
+    return render(request, 'gallery_list.html', {'galleries': galleries}) 
+
+def gallery_detail(request, pk):
+     gallery = Gallery.objects.get(pk=pk) 
+     return render(request, 'gallery_detail.html', {'gallery':gallery})
 
 

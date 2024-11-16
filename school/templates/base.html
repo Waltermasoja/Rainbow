@@ -29,6 +29,7 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/mycss.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet">
 
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet">
@@ -63,7 +64,9 @@
             </ul>
           </li>
           <li><a href="{% url 'testimonials' %}">What our clients say</a></li>
-          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <!-- <li><a href="{% url 'gallery' %}">Gallery</a></li> -->
+          <!-- <li><a href="{% url 'gallery_list' %}">Gallery</a></li> -->
+          <li><a href="{% url 'gallery_list' %}">Gallery</a></li>
           <li><a href="{% url 'event_list' %}">Events</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
