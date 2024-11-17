@@ -32,13 +32,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['*','https://rainbow-production-235c.up.railway.app']
 
 # settings.py
-CSRF_TRUSTED_ORIGINS = [
-    'https://rainbow-production-235c.up.railway.app',
-    'https://your-railway-subdomain.railway.app',
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://rainbow-production-235c.up.railway.app',
+#     'https://your-railway-subdomain.railway.app',
     
-    'https://rainbow-production-235c.up.railway.app/admin'
+#     'https://rainbow-production-235c.up.railway.app/admin'
 
-]
+# ]
+ALLOWED_HOSTS = ['https://rainbow-production-235c.up.railway.app', 'https://rainbow-production-235c.up.railway.app']
+
 
 
 CSRF_COOKIE_SECURE = True
