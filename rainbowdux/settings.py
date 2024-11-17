@@ -29,21 +29,19 @@ SECRET_KEY = 'django-insecure-9!=3*ypk4k5la2lrlf#x+(^*c9@j*!*oot_hib&h!px31_a^5n
 DEBUG = True
 
 # DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['*','https://rainbow-production-235c.up.railway.app']
+# ALLOWED_HOSTS = ['*','https://rainbow-production-235c.up.railway.app']
+
 
 # settings.py
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://rainbow-production-235c.up.railway.app',
-#     'https://your-railway-subdomain.railway.app',
-    
-#     'https://rainbow-production-235c.up.railway.app/admin'
+CSRF_TRUSTED_ORIGINS = [
+   'your-railway-subdomain.up.railway.app', 'rainbow-production-8275.up.railway.app'
 
-# ]
-ALLOWED_HOSTS = ['https://rainbow-production-235c.up.railway.app', 'https://rainbow-production-235c.up.railway.app']
-
-
+]
+ALLOWED_HOSTS = ['your-railway-subdomain.up.railway.app', 'rainbow-production-8275.up.railway.app']
 
 CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 # Application definition
 
