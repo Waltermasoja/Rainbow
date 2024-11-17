@@ -42,7 +42,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 ALLOWED_HOSTS = [ 'https://rainbow-production-8275.up.railway.app',
                  'rainbow-production-8275.up.railway.app/admin',
-                 'rainbow-production-8275.up.railway.app'],'*'
+                 'rainbow-production-8275.up.railway.app']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

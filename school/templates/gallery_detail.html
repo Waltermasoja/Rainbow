@@ -4,86 +4,72 @@
 {% block content %}
 <body>
     <div class="background-image"></div>
-<div class="overlay">
-    <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
-    <p>{{ gallery.description }}</p>
+    <div class="overlay">
+        <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
+        <p>{{ gallery.description }}</p>
 
-    <!-- Slideshow Gallery Section -->
-    {% if gallery.images.exists %}
-    <div class="slideshow-container">
-        {% for image in gallery.images.all %}
-        <div class="slides fade">
-            <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
-            <div class="text">{{ image.title }}: {{ image.description }}</div>
+        <!-- Slideshow Gallery Section -->
+        {% if gallery.images.exists %}
+        <div class="slideshow-container">
+            {% for image in gallery.images.all %}
+            <div class="slides fade">
+                <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
+                <div class="text">{{ image.title }}: {{ image.description }}</div>
+            </div>
+            {% endfor %}
+
+            <!-- Next and Previous Buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        {% endfor %}
 
-        <!-- Next and Previous Buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- Dots/Circles for each slide -->
+        <div class="dots-container">
+            {% for image in gallery.images.all %}
+            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No images available for this gallery.</p>
+        {% endif %}
     </div>
 
-    <!-- Dots/Circles for each slide -->
-    <div class="dots-container">
-        {% for image in gallery.images.all %}
-        <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
-        {% endfor %}
-    </div>
-    {% else %}
-    <p>No images available for this gallery.</p>
-    {% endif %}
-</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var slideIndex = 1;
+            showSlides(slideIndex);
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var slideIndex = 0; // Start with the first slide
-        var slides = document.getElementsByClassName("slides");
-        var dots = document.getElementsByClassName("dot");
-
-        function showSlides(n) {
-            if (n > slides.length) slideIndex = 1;
-            if (n < 1) slideIndex = slides.length;
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none"; // Hide all slides
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", ""); // Deactivate dots
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
             }
 
-            slides[slideIndex - 1].style.display = "block"; // Show current slide
-            dots[slideIndex - 1].className += " active"; // Activate current dot
-        }
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
 
-        function plusSlides(n) {
-            slideIndex += n;
-            if (slideIndex > slides.length) slideIndex = 1;
-            if (slideIndex < 1) slideIndex = slides.length;
-            showSlides(slideIndex);
-        }
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("slides");
+                var dots = document.getElementsByClassName("dot");
 
-        function currentSlide(n) {
-            slideIndex = n;
-            showSlides(slideIndex);
-        }
+                if (n > slides.length) {slideIndex = 1;}
+                if (n < 1) {slideIndex = slides.length;}
 
-        // Auto-play functionality (optional)
-        function autoPlay() {
-            slideIndex++;
-            if (slideIndex > slides.length) slideIndex = 1;
-            showSlides(slideIndex);
-            setTimeout(autoPlay, 10000); // Change slide every 5 seconds
-        }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
 
-        // Initialize slideshow
-        slideIndex = 1;
-        showSlides(slideIndex);
-        autoPlay(); // Start auto-play
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
 
-        // Attach functions to global scope for buttons
-        window.plusSlides = plusSlides;
-        window.currentSlide = currentSlide;
-    });
-</script>
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
 
+            window.plusSlides = plusSlides;
+            window.currentSlide = currentSlide;
+        });
+    </script>
+</body>
 {% endblock content %}
