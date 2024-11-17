@@ -34,10 +34,10 @@ DEBUG = True
 
 # settings.py
 CSRF_TRUSTED_ORIGINS = [
-   'your-railway-subdomain.up.railway.app', 'rainbow-production-8275.up.railway.app'
+   'your-railway-subdomain.up.railway.app', ,https://rainbow-production-8275.up.railway.app
 
 ]
-ALLOWED_HOSTS = ['your-railway-subdomain.up.railway.app', 'rainbow-production-8275.up.railway.app']
+ALLOWED_HOSTS = ['your-railway-subdomain.up.railway.app', ,https://rainbow-production-8275.up.railway.app]
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
