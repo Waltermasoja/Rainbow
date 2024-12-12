@@ -2,89 +2,67 @@
 {% load static %}
 
 {% block content %}
-<body>
-    <div class="background-image"></div>
-    <div class="overlay">
-        <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
-        <p>{{ gallery.description }}</p>
+<div class="background-image"></div>
+<div class="overlay">
+    <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
+    <p>{{ gallery.description }}</p>
 
-        <!-- Slideshow Gallery Section -->
-        {% if gallery.images.exists %}
-        <div class="slideshow-container">
-            {% for image in gallery.images.all %}
-            <div class="slides fade">
-                <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
-                <div class="text">{{ image.title }}: {{ image.description }}</div>
-            </div>
-            {% endfor %}
-
-            <!-- Next and Previous Buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- Slideshow Gallery Section -->
+    {% if gallery.images.exists %}
+    <div class="slideshow-container">
+        {% for image in gallery.images.all %}
+        <div class="slides fade">
+            <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
+            <div class="text">{{ image.title }}: {{ image.description }}</div>
         </div>
+        {% endfor %}
 
-        <!-- Dots/Circles for each slide -->
-        <div class="dots-container">
-            {% for image in gallery.images.all %}
-            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
-            {% endfor %}
-        </div>
-        {% else %}
-        <p>No images available for this gallery.</p>
-        {% endif %}
+        <!-- Next and Previous Buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
-    <script>
-        // Ensure script executes after the DOM is fully loaded
-        document.addEventListener("DOMContentLoaded", function () {
-            var slideIndex = 1;
-            showSlides(slideIndex);
+    <!-- Dots/Circles for each slide -->
+    <div class="dots-container">
+        {% for image in gallery.images.all %}
+        <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No images available for this gallery.</p>
+    {% endif %}
+</div>
 
-            // Next/previous controls
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
+<script>
+    var slideIndex = 1; 
+    showSlides(slideIndex);
 
-            // Thumbnail image controls
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-            // Main function to show slides
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("slides");
-                var dots = document.getElementsByClassName("dot");
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
 
-                // Loop back to the first slide if exceeding the number of slides
-                if (n > slides.length) {
-                    slideIndex = 1;
-                }
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slides");
+        var dots = document.getElementsByClassName("dot");
 
-                // Loop back to the last slide if less than the first
-                if (n < 1) {
-                    slideIndex = slides.length;
-                }
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
 
-                // Hide all slides
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
 
-                // Remove active class from all dots
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
 
-                // Show the current slide and highlight the corresponding dot
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-            }
-
-            // Expose functions to global scope
-            window.plusSlides = plusSlides;
-            window.currentSlide = currentSlide;
-        });
-    </script>
-</body>
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 {% endblock content %}
