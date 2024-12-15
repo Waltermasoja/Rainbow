@@ -12,8 +12,8 @@
     <div class="slideshow-container">
         {% for image in gallery.images.all %}
         <div class="slides fade">
-            <img src="{{ Image.images.url }}" alt="{{ Image.title }}" style="width:100%">
-            <div class="text">{{ Image.title }}: {{ Image.description }}</div>
+            <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
+            <div class="text">{{ image.title }}: {{ image.description }}</div>
         </div>
         {% endfor %}
 
