@@ -13,7 +13,7 @@
         <div class="carousel-inner">
             {% for image in gallery.images.all %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{ image.images.url }}" class="d-block w-100" alt="{{ image.title }}">
+                <img src="{{ image.images.url }}" class="d-block w-100" alt="{{ image.title }}" style="width:100%; max-height: 500px; object-fit: cover;">
                 <div class="text">{{ image.title }}: {{ image.description }}</div>
             </div>
             {% endfor %}
@@ -126,7 +126,6 @@ img {
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("carousel-item");
-        var dots = document.getElementsByClassName("dot");
 
         if (n > slides.length) { slideIndex = 1; }
         if (n < 1) { slideIndex = slides.length; }
@@ -135,12 +134,7 @@ img {
             slides[i].style.display = "none";
         }
 
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
     }
 </script>
 {% endblock content %}
