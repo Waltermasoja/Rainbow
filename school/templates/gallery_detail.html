@@ -9,107 +9,29 @@
 
     <!-- Slideshow Gallery Section -->
     {% if gallery.images.exists %}
-    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-        <div class="carousel-inner">
-            {% for image in gallery.images.all %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{ image.images.url }}" class="d-block w-100" alt="{{ image.title }}" style="width:100%; max-height: 500px; object-fit: cover;">
-                <div class="text">{{ image.title }}: {{ image.description }}</div>
-            </div>
-            {% endfor %}
+    <div class="slideshow-container">
+        {% for image in gallery.images.all %}
+        <div class="slides fade">
+            <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
+            <div class="text">{{ image.title }}: {{ image.description }}</div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        {% endfor %}
+
+        <!-- Next and Previous Buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots/Circles for each slide -->
+    <div class="dots-container">
+        {% for image in gallery.images.all %}
+        <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+        {% endfor %}
     </div>
     {% else %}
     <p>No images available for this gallery.</p>
     {% endif %}
 </div>
-
-<style>
-.background-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('path_to_background_image.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: -1;
-}
-
-.overlay {
-    position: relative;
-    background: rgba(0, 0, 0, 0.5);
-    color: blanchedalmond;
-    padding: 20px;
-}
-
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel-item {
-    display: none;
-    position: relative;
-    width: 100%;
-    transition: transform 0.6s ease-in-out;
-}
-
-.carousel-item.active {
-    display: block;
-}
-
-img {
-    vertical-align: middle;
-    width: 100%;
-}
-
-.carousel-control-prev, .carousel-control-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    user-select: none;
-}
-
-.carousel-control-prev {
-    left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.carousel-control-next {
-    right: 0;
-    border-radius: 0 3px 3px 0;
-}
-
-.carousel-control-prev:hover, .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-}
-</style>
 
 <script>
     var slideIndex = 1; 
@@ -125,7 +47,8 @@ img {
 
     function showSlides(n) {
         var i;
-        var slides = document.getElementsByClassName("carousel-item");
+        var slides = document.getElementsByClassName("slides");
+        var dots = document.getElementsByClassName("dot");
 
         if (n > slides.length) { slideIndex = 1; }
         if (n < 1) { slideIndex = slides.length; }
@@ -134,7 +57,12 @@ img {
             slides[i].style.display = "none";
         }
 
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
         slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
     }
 </script>
 {% endblock content %}
