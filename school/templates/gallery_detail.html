@@ -4,13 +4,12 @@
 {% block content %}
 <div class="background-image"></div>
 <div class="overlay">
-    <h1 style="color: blanchedalmond;">{{ gallery.name }}</h1>
+    <h1>{{ gallery.name }}</h1>
     <p>{{ gallery.description }}</p>
 
     <!-- Slideshow Gallery Section -->
-    {% if gallery.images.exists %}
     <div class="slideshow-container">
-        {% for image in gallery.images.all %}
+        {% for image in images %}
         <div class="slides fade">
             <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
             <div class="text">{{ image.title }}: {{ image.description }}</div>
@@ -24,45 +23,48 @@
 
     <!-- Dots/Circles for each slide -->
     <div class="dots-container">
-        {% for image in gallery.images.all %}
+        {% for image in images %}
         <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
         {% endfor %}
     </div>
-    {% else %}
-    <p>No images available for this gallery.</p>
-    {% endif %}
+
+    <p>Scroll for more content after the gallery...</p>
+    <p>Additional scrolling content here. Keep adding your text or content!</p>
 </div>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
+    /* Your existing styles for background-image and overlay */
     .background-image {
-        background: url("{% static 'images/default-background.jpg' %}") no-repeat center center fixed;
-        background-size: cover;
         position: absolute;
         width: 100%;
         height: 100%;
+        background: url('path_to_background_image.jpg') no-repeat center center;
+        background-size: cover;
         z-index: -1;
     }
 
     .overlay {
         position: relative;
-        color: white;
-        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        color: blanchedalmond;
         padding: 20px;
     }
 
+    /* Slideshow Styles */
     .slideshow-container {
         position: relative;
-        max-width: 800px;
+        max-width: 1000px;
         margin: auto;
+        overflow: hidden;
     }
 
     .slides {
         display: none;
+    }
+
+    .slides img {
+        width: 100%;
+        height: auto;
     }
 
     .text {
@@ -73,8 +75,10 @@
         bottom: 8px;
         width: 100%;
         text-align: center;
+        background: rgba(0, 0, 0, 0.5);
     }
 
+    /* Navigation buttons */
     .prev, .next {
         cursor: pointer;
         position: absolute;
@@ -84,20 +88,31 @@
         margin-top: -22px;
         color: white;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 24px;
         transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
         user-select: none;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
     }
 
     .next {
         right: 0;
-        border-radius: 3px 0 0 3px;
+        border-radius: 0 3px 3px 0;
     }
 
+    /* Dots */
     .dots-container {
         text-align: center;
-        padding: 10px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
     }
 
     .dot {
@@ -108,11 +123,6 @@
         background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
-        transition: background-color 0.6s ease;
-    }
-
-    .active, .dot:hover {
-        background-color: #717171;
     }
 </style>
 
