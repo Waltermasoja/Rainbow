@@ -9,7 +9,7 @@
 
     <!-- Slideshow Gallery Section -->
     <div class="slideshow-container">
-        {% for image in gallery %}
+        {% for image in gallery.images.all %}
         <div class="slides fade">
             <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
             <div class="text">{{ image.title }}: {{ image.description }}</div>
@@ -23,13 +23,14 @@
 
     <!-- Dots/Circles for each slide -->
     <div class="dots-container">
-        {% for image in images %}
+        {% for image in gallery.images.all %}
         <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
         {% endfor %}
     </div>
 
     <p>Scroll for more content after the gallery...</p>
-
+    
+</div>
 
 <style>
     /* Your existing styles for background-image and overlay */
