@@ -9,7 +9,7 @@
 
     <!-- Slideshow Gallery Section -->
     <div class="slideshow-container">
-        {% for image in images %}
+        {% for image in gallery %}
         <div class="slides fade">
             <img src="{{ image.images.url }}" alt="{{ image.title }}" style="width:100%">
             <div class="text">{{ image.title }}: {{ image.description }}</div>
@@ -29,8 +29,7 @@
     </div>
 
     <p>Scroll for more content after the gallery...</p>
-    <p>Additional scrolling content here. Keep adding your text or content!</p>
-</div>
+
 
 <style>
     /* Your existing styles for background-image and overlay */
